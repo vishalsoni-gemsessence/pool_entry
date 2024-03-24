@@ -1,0 +1,18 @@
+en:
+  simple_form:
+    placeholders:
+      customer:
+        name: Name of your customer
+        address: Address of your customer
+        contact_number: Contact number of your customer
+    labels:
+      customer:
+        name: Name
+        address: Address
+        contact_number: Contact number
+
+  helpers:
+    submit:
+      customer:
+        create: Create customer
+        update: Update customer

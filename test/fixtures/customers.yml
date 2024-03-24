@@ -1,0 +1,14 @@
+first:
+  name: First customer
+  address: "123 Main St, City, Country"
+  contact_number: "123-456-7890"
+
+second:
+  name: Second customer
+  address: "456 Elm St, Town, Country"
+  contact_number: "987-654-3210"
+
+third:
+  name: Third customer
+  address: "789 Oak St, Village, Country"
+  contact_number: "111-222-3333"

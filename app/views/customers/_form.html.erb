@@ -1,0 +1,13 @@
+<%= simple_form_for customer, html: { class: "customer form" } do |f| %>
+  <% if customer.errors.any? %>
+    <div class="error-message">
+      <%= customer.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <%= f.input :name, input_html: { autofocus: true } %>
+  <%= f.input :address %>
+  <%= f.input :contact_number %>
+  
+  <%= f.submit class: "btn btn--secondary" %>
+<% end %>

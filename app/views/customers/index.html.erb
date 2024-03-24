@@ -1,0 +1,41 @@
+<main class="container">
+  <div class="header">
+    <h1>Customers</h1>
+    <%= link_to "New customer", new_customer_path, class: "btn btn--primary" %>
+  </div>
+  <div>
+    <%= form_tag(customers_path, method: :get) do %>
+      <div class="form-group">
+        <%= label_tag :contact_number, "Search by Contact Number" %>
+        <%= text_field_tag :contact_number, params[:contact_number], class: "form-control", id: "contact-number-field" %>
+        <%= submit_tag "Search", class: "btn btn--primary" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="customer-list">
+    <%= render @customers %>
+  </div>
+</main>
+
+<!--
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const contactNumberField = document.getElementById("contact-number-field");
+
+    contactNumberField.addEventListener("input", () => {
+      const contactNumber = contactNumberField.value.trim();
+      const customerList = document.querySelector(".customer-list");
+
+      fetch(`/customers?contact_number=${encodeURIComponent(contactNumber)}`)
+        .then(response => response.text())
+        .then(data => {
+          customerList.innerHTML = data;
+        })
+        .catch(error => {
+          console.error("Error fetching customers:", error);
+        });
+    });
+  });
+</script>
+-->
