@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    resources :entry_bookings
   end  # Defines the root path route ("/")
   # root "posts#index"
 end

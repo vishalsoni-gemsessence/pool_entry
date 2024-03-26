@@ -4,6 +4,7 @@
   <div class="header">
     <h1>New customer</h1>
   </div>
-
-  <%= render "form", customer: @customer %>
+  <%= turbo_frame_tag @customer do %>
+    <%= render "form", customer: @customer %>
+  <% end %>  
 </main>

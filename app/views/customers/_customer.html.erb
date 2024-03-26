@@ -1,12 +1,14 @@
-<div class="customer">
-  <%= link_to customer.name, customer_path(customer) %>
-  <div class="customer__actions">
-    <%= button_to "Delete",
-                  customer_path(customer),
-                  method: :delete,
+<%= turbo_frame_tag customer do %>
+  <div class="customer">
+    <%= link_to customer.name, customer_path(customer), data: { turbo_frame: "_top" }  %>
+    <div class="customer__actions">
+      <%= button_to "Delete",
+                    customer_path(customer),
+                    method: :delete,
+                    class: "btn btn--light" %>
+      <%= link_to "Edit",
+                  edit_customer_path(customer),
                   class: "btn btn--light" %>
-    <%= link_to "Edit",
-                edit_customer_path(customer),
-                class: "btn btn--light" %>
+    </div>
   </div>
-</div>
+<% end %>

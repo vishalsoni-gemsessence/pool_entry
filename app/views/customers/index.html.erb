@@ -1,21 +1,23 @@
+<%= turbo_stream_from "customers" %>
 <main class="container">
   <div class="header">
     <h1>Customers</h1>
-    <%= link_to "New customer", new_customer_path, class: "btn btn--primary" %>
+    <%= link_to "New customer", new_customer_path, class: "btn btn--primary", data: { turbo_frame: dom_id(Customer.new) } %>
   </div>
   <div>
     <%= form_tag(customers_path, method: :get) do %>
       <div class="form-group">
-        <%= label_tag :contact_number, "Search by Contact Number" %>
         <%= text_field_tag :contact_number, params[:contact_number], class: "form-control", id: "contact-number-field" %>
         <%= submit_tag "Search", class: "btn btn--primary" %>
       </div>
     <% end %>
   </div>
 
-  <div class="customer-list">
+  <%= turbo_frame_tag Customer.new %>
+
+  <%= turbo_frame_tag "customers" do %>
     <%= render @customers %>
-  </div>
+  <% end %>
 </main>
 
 <!--
