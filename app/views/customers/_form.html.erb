@@ -1,13 +1,19 @@
-<%= simple_form_for customer, html: { class: "customer form" } do |f| %>
-  <% if customer.errors.any? %>
+<%= simple_form_for @customer, html: { class: "customer form" } do |f| %>
+  <% if @customer.errors.any? %>
     <div class="error-message">
-      <%= customer.errors.full_messages.to_sentence.capitalize %>
+      <%= @customer.errors.full_messages.to_sentence.capitalize %>
     </div>
   <% end %>
 
   <%= f.input :name, input_html: { autofocus: true } %>
   <%= f.input :address %>
   <%= f.input :contact_number %>
+
+  <!-- Nested Entry Booking Fields -->
+  <%= f.simple_fields_for :entry_bookings, EntryBooking.new do |entry_booking_form| %>
+    <%= render 'entry_booking_fields', f: entry_booking_form %>
+  <% end %>
+
   <%= link_to "Cancel", customers_path, class: "btn btn--light" %>
   <%= f.submit class: "btn btn--secondary" %>
 <% end %>

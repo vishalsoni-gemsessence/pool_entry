@@ -6,40 +6,67 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :date %>
-    <%= f.date_field :date, class: "form-control", autofocus: true %>
+    <div>
+      <%= f.label :date %>
+    </div>
+    <div>
+      <%= f.date_field :date, class: "form-control", autofocus: true %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :persons %>
-    <%= f.number_field :persons, class: 'form-control' %>
+    <div>
+      <%= f.label :persons %>
+    </div>
+    <div>
+      <%= f.number_field :persons, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :amount %>
-    <%= f.number_field :amount, class: 'form-control' %>
+    <div>
+      <%= f.label :amount %>
+    </div>
+    <div>
+      <%= f.number_field :amount, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :purpose %>
-    <%= f.text_field :purpose, class: 'form-control' %>
+    <div>
+      <%= f.label :purpose %>
+    </div>
+    <div>
+      <%= f.text_field :purpose, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :remark %>
-    <%= f.text_area :remark, class: 'form-control' %>
+    <div>
+      <%= f.label :remark %>
+    </div>
+    <div>
+      <%= f.text_area :remark, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :entry_type_id %>
-    <%= f.collection_select :entry_type_id, EntryType.all, :id, :entry_type, { selected: EntryType.find_by(entry_type: "stag_entry").id }, class: 'form-control' %>
+    <div>
+      <%= f.label :entry_type_id %>
+    </div>
+    <div>
+      <%= f.collection_select :entry_type_id, EntryType.all, :id, :entry_type, { selected: EntryType.find_by(entry_type: "stag_entry").id }, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :locker_token %>
-    <%= f.number_field :locker_token, class: 'form-control' %>
+    <div>
+      <%= f.label :locker_token %>
+    </div>
+    <div>
+      <%= f.number_field :locker_token, class: 'form-control' %>
+    </div>
   </div>
-
 
   <!-- Add other input fields here as needed -->
 

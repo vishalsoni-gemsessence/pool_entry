@@ -1,17 +1,21 @@
-<div class="entry-booking">
-  <div class="entry-booking__header">
-    <h2 class="entry-booking__title">
-      <%= l(entry_booking.date, format: :long) %>
-    </h2>
+<%= turbo_frame_tag entry_booking do %>
+  <div class="entry-booking">
+    <%= turbo_frame_tag dom_id(entry_booking, :edit) do %>
+      <div class="entry-booking__header">
+        <h2 class="entry-booking__title">
+          <%= l(entry_booking.date, format: :long) %>
+        </h2>
 
-    <div class="entry-booking__actions">
-      <%= button_to "Delete",
-                    [customer, entry_booking],
-                    method: :delete,
-                    class: "btn btn--light" %>
-      <%= link_to "Edit",
-                  [:edit, customer, entry_booking],
-                  class: "btn btn--light" %>
-    </div>
+        <div class="entry-booking__actions">
+          <%= button_to "Delete",
+                        [customer, entry_booking],
+                        method: :delete,
+                        class: "btn btn--light" %>
+          <%= link_to "Edit",
+                      [:edit, customer, entry_booking],
+                      class: "btn btn--light" %>
+        </div>
+      </div>
+    <% end %>
   </div>
-</div>
+<% end %>  

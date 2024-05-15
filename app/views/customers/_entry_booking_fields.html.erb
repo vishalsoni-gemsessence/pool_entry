@@ -1,0 +1,9 @@
+<div class="nested-fields">
+  <%= f.input :date, as: :date, label: "Booking Date", class: "form-control" %>
+  <%= f.input :persons, label: "Number of Persons", class: "form-control" %>
+  <%= f.input :amount, label: "Amount", class: "form-control" %>
+  <%= f.input :purpose, label: "Purpose", class: "form-control" %>
+  <%= f.input :remark, label: "Remark", class: "form-control" %>
+  <%= f.collection_select :entry_type_id, EntryType.all, :id, :entry_type, { selected: EntryType.find_by(entry_type: "stag_entry").id }, class: 'form-control' %>
+  <%= f.input :locker_token, label: "Locker Token", class: "form-control" %>
+</div>

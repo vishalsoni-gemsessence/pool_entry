@@ -1,0 +1,8 @@
+<%= turbo_stream.remove @entry_booking %>
+
+
+<%= turbo_stream.prepend "entry_bookings" do %>
+  <%= render @entry_booking, customer: @customer %>
+<% end %>
+
+<%= render_turbo_stream_flash_messages %>

@@ -21,14 +21,23 @@ class CustomersController < ApplicationController
     @customer = Customer.new
   end
 
+  # def create
+  #   @customer = Customer.new(customer_params)
+
+  #   if @customer.save
+  #     respond_to do |format|
+  #       format.html { redirect_to customers_path, notice: "Customer was successfully created." }
+  #       format.turbo_stream { flash.now[:notice] = "Customer was successfully created." }
+  #     end
+  #   else
+  #     render :new, status: :unprocessable_entity
+  #   end
+  # end
+
   def create
     @customer = Customer.new(customer_params)
-
     if @customer.save
-      respond_to do |format|
-        format.html { redirect_to customers_path, notice: "Customer was successfully created." }
-        format.turbo_stream { flash.now[:notice] = "Customer was successfully created." }
-      end
+      redirect_to customers_path, notice: "Customer was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -72,6 +81,6 @@ class CustomersController < ApplicationController
   end
 
   def customer_params
-    params.require(:customer).permit(:name, :address, :contact_number)
+    params.require(:customer).permit(:name, :address, :contact_number, entry_bookings_attributes: [:id, :date, :persons, :amount, :purpose, :remark, :entry_type_id, :locker_token])
   end
 end

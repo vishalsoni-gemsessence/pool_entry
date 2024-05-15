@@ -1,6 +1,10 @@
 class EntryBookingsController < ApplicationController
-  before_action :set_customer
+  before_action :set_customer, except: [:index]
   before_action :set_entry_booking, only: [:edit, :update, :destroy]
+
+  def index
+    @entry_bookings = EntryBooking.all
+  end
 
   def new
     @entry_booking = @customer.entry_bookings.build
